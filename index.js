@@ -46,6 +46,17 @@ class LinkedList {
         this.tail = newNode // Update the tail to the new node
       }
     }
+    prepend(value){
+        const newNode = new Node(value)
+        if (this.head === null){
+            this.head = newNode
+            this.tail = newNode
+        }else{
+            newNode.next = this.head // the former head becomes the next node
+            this.head = newNode // new node becomes the head
+        }
+    }
+    
 }
   
 
@@ -57,11 +68,5 @@ console.log(newList)
 newList.append(20)
 console.log(newList)
 newList.prepend(40)
-console.log(newList)
-console.log(newList.size())
-
-console.log(newList.firstNode())
-console.log(newList.lastNode())
-console.log(newList.contains(10))
 console.log(newList)
 console.log(newList.size())

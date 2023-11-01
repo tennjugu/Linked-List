@@ -56,7 +56,17 @@ class LinkedList {
             this.head = newNode // new node becomes the head
         }
     }
-    
+    size() {
+        let totalNode = 0
+        let currentNode = this.head
+        
+        while (currentNode !== null) {
+            totalNode++
+            currentNode = currentNode.next
+        }
+        return `Total node(s): ${totalNode}`
+    }
+   
 }
   
 

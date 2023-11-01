@@ -91,6 +91,44 @@ class LinkedList {
             return `Invalid index. Enter a value between 0 and ${currentPosition}`
         }
     }
+    popAt(index) {
+        let currentNode = this.head
+        let previousNode = null
+        let currentPosition = 0
+        
+        if (index < 0) {
+            return "Invalid index. Enter a non-negative index."
+        }
+        while (currentNode !== null && currentPosition < index) {
+            previousNode = currentNode
+            currentNode = currentNode.next
+            currentPosition++
+        }
+        if (index === 0) {
+            if (currentNode === null) {
+                return "Index not found."
+            }
+            this.head = currentNode.next
+            if (currentNode === this.tail) {
+                this.tail = null
+            }
+            return `Removed node at index ${index} with value: ${currentNode.value}`
+        }
+        if (index === currentPosition) {
+            if (currentNode === this.tail) {
+                this.tail = previousNode
+            }
+            if (currentNode === null) {
+                return `cannot remove ${index} with value: ${currentNode}`
+            }else {
+                previousNode.next = currentNode.next
+            }
+            return `Removed node at index ${index} with value: ${currentNode.value}`
+        } 
+        if (index > currentPosition) {
+            return `Invalid index. Enter a value between 0 and ${currentPosition}`
+        }
+    }
    
 }
   

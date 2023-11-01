@@ -66,6 +66,31 @@ class LinkedList {
         }
         return `Total node(s): ${totalNode}`
     }
+    firstNode(){
+        return `first node: ${this.head.value}`
+    }
+    lastNode(){
+        return `last node: ${this.tail.value}`
+    }
+    retrieveAt(index){
+        let currentNode = this.head
+        let  currentPosition= 0
+
+        if (index < 0) {
+            return "Invalid index. Enter a non-negative index."
+        }
+    
+        while (currentNode !== null && index > currentPosition) {
+            currentNode = currentNode.next
+            currentPosition++
+        }
+        if(index === currentPosition){
+            return `node at index ${index} is ${currentNode.value}`
+        }
+        if (index > 0 && index > currentPosition){
+            return `Invalid index. Enter a value between 0 and ${currentPosition}`
+        }
+    }
    
 }
   
@@ -80,3 +105,4 @@ console.log(newList)
 newList.prepend(40)
 console.log(newList)
 console.log(newList.size())
+console.log(newList.retrieveAt(2))

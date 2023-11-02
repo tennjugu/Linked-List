@@ -67,10 +67,10 @@ class LinkedList {
         return `Total node(s): ${totalNode}`
     }
     firstNode(){
-        return `first node: ${this.head.value}`
+        return `value of first node: ${this.head.value}`
     }
     lastNode(){
-        return `last node: ${this.tail.value}`
+        return `value of last node: ${this.tail.value}`
     }
     retrieveAt(index){
         let currentNode = this.head
@@ -108,9 +108,9 @@ class LinkedList {
             if (currentNode === null) {
                 return "Index not found."
             }
-            this.head = currentNode.next
+            this.head = currentNode.next //if there is at least one node, the head is is removed and the next node becomes the head
             if (currentNode === this.tail) {
-                this.tail = null
+                this.tail = previousNode
             }
             return `Removed node at index ${index} with value: ${currentNode.value}`
         }
@@ -129,18 +129,22 @@ class LinkedList {
             return `Invalid index. Enter a value between 0 and ${currentPosition}`
         }
     }
-   
+    contains(value){
+        let currentNode = this.head
+        let status = false
+        while (currentNode !== null){     
+        }      
+    }
 }
   
 
 let newList = new LinkedList()
 newList.append(10)
-console.log(newList)
 newList.append(15)
-console.log(newList)
 newList.append(20)
-console.log(newList)
 newList.prepend(40)
 console.log(newList)
 console.log(newList.size())
-console.log(newList.retrieveAt(2))
+console.log(newList.popAt(3))
+console.log(newList)
+console.log(newList.size())

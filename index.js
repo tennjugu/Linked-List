@@ -129,20 +129,20 @@ class LinkedList {
             return `Invalid index. Enter a value between 0 and ${currentPosition}.`
         }
     }
-    contains(impValue){
+    contains(inpValue){
         let currentNode = this.head
         let currentPosition = 0
         let status = false
         
         while (currentNode !== null){ 
             let currentNodeValue = currentNode.value
-            if(impValue === currentNodeValue){
-                return `status: ${!status}, ${impValue} found at index ${currentPosition}.`
+            if(inpValue === currentNodeValue){
+                return `status: ${!status}, ${inpValue} found at index ${currentPosition}.`
             }  
             currentNode = currentNode.next
             currentPosition++
         } 
-        return `status: ${status}, ${impValue} not found.`
+        return `status: ${status}, ${inpValue} not found.`
     }
     tostring(){
         let currentNode = this.head
@@ -153,6 +153,33 @@ class LinkedList {
         }
         return result += 'null'
     }
+    insertAt(inpValue, index){
+        let currentNode = this.head
+        let previousNode = null
+        let currentPosition = 0
+        let newNode = new Node(inpValue)
+
+        if (index < 0) {
+            return 'Invalid index'
+        }
+        if (index === 0 ){
+            newNode.next = currentNode
+            this.head = newNode
+            return `Inserted at index ${index}`
+        }
+        while(currentNode !== null && index > currentPosition){
+            previousNode = currentNode
+            currentNode = currentNode.next
+            currentPosition++
+        }
+        if (index === currentPosition){
+            previousNode.next = newNode
+            newNode.next = currentNode
+            return `Inserted at index ${index}`
+        }else{
+            return 'Index not found'
+        }
+    }
 }
   
 
@@ -161,10 +188,13 @@ newList.append(10)
 newList.append(15)
 newList.append(20)
 newList.prepend(40)
+
+console.log(newList.insertAt(300, 3))
+console.log(newList.tostring())
 // console.log(newList)
 // console.log(newList.size())
 // console.log(newList.popAt(3))
-console.log(newList)
+//console.log(newList)
 // console.log(newList.size())
-console.log(newList.contains(100))
-console.log(newList.tostring())
+//console.log(newList.contains(100))
+//console.log(newList.tostring())

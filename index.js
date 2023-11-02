@@ -144,17 +144,27 @@ class LinkedList {
         } 
         return `status: ${status}, ${impValue} not found.`
     }
+    tostring(){
+        let currentNode = this.head
+        let result = ''
+        while(currentNode){
+            result += `${currentNode.value} -> `
+            currentNode = currentNode.next
+        }
+        return result += 'null'
+    }
 }
   
 
 let newList = new LinkedList()
 newList.append(10)
-// newList.append(15)
-// newList.append(20)
-// newList.prepend(40)
+newList.append(15)
+newList.append(20)
+newList.prepend(40)
 // console.log(newList)
 // console.log(newList.size())
 // console.log(newList.popAt(3))
 console.log(newList)
 // console.log(newList.size())
 console.log(newList.contains(100))
+console.log(newList.tostring())

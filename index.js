@@ -112,39 +112,49 @@ class LinkedList {
             if (currentNode === this.tail) {
                 this.tail = previousNode
             }
-            return `Removed node at index ${index} with value: ${currentNode.value}`
+            return `Removed node at index ${index} with value: ${currentNode.value}.`
         }
         if (index === currentPosition) {
             if (currentNode === this.tail) {
                 this.tail = previousNode
             }
             if (currentNode === null) {
-                return `cannot remove ${index} with value: ${currentNode}`
+                return `cannot remove ${index} with value: ${currentNode}.`
             }else {
                 previousNode.next = currentNode.next
             }
-            return `Removed node at index ${index} with value: ${currentNode.value}`
+            return `Removed node at index ${index} with value: ${currentNode.value}.`
         } 
         if (index > currentPosition) {
-            return `Invalid index. Enter a value between 0 and ${currentPosition}`
+            return `Invalid index. Enter a value between 0 and ${currentPosition}.`
         }
     }
-    contains(value){
+    contains(impValue){
         let currentNode = this.head
+        let currentPosition = 0
         let status = false
-        while (currentNode !== null){     
-        }      
+        
+        while (currentNode !== null){ 
+            let currentNodeValue = currentNode.value
+            if(impValue === currentNodeValue){
+                return `status: ${!status}, ${impValue} found at index ${currentPosition}.`
+            }  
+            currentNode = currentNode.next
+            currentPosition++
+        } 
+        return `status: ${status}, ${impValue} not found.`
     }
 }
   
 
 let newList = new LinkedList()
 newList.append(10)
-newList.append(15)
-newList.append(20)
-newList.prepend(40)
+// newList.append(15)
+// newList.append(20)
+// newList.prepend(40)
+// console.log(newList)
+// console.log(newList.size())
+// console.log(newList.popAt(3))
 console.log(newList)
-console.log(newList.size())
-console.log(newList.popAt(3))
-console.log(newList)
-console.log(newList.size())
+// console.log(newList.size())
+console.log(newList.contains(100))

@@ -42,7 +42,7 @@ class LinkedList {
         this.tail = newNode // Set the tail for the first element
         return
       } else {
-        this.tail.next = newNode // Update the current tail's next to the new node
+        this.tail.next = newNode // Update the current tail"s next to the new node
         this.tail = newNode // Update the tail to the new node
       }
     }
@@ -87,7 +87,7 @@ class LinkedList {
         if(index === currentPosition){
             return `node at index ${index} is ${currentNode.value}`
         }
-        if (index > 0 && index > currentPosition){
+        if (index > currentPosition){
             return `Invalid index. Enter a value between 0 and ${currentPosition}`
         }
     }
@@ -119,7 +119,7 @@ class LinkedList {
                 this.tail = previousNode
             }
             if (currentNode === null) {
-                return `cannot remove ${index} with value: ${currentNode}.`
+                return `cannot remove at index ${index} with value: ${currentNode}.`
             }else {
                 previousNode.next = currentNode.next
             }
@@ -146,12 +146,12 @@ class LinkedList {
     }
     tostring(){
         let currentNode = this.head
-        let result = ''
+        let result = ""
         while(currentNode){
             result += `${currentNode.value} -> `
             currentNode = currentNode.next
         }
-        return result += 'null'
+        return result += "null"
     }
     insertAt(inpValue, index){
         let currentNode = this.head
@@ -160,7 +160,7 @@ class LinkedList {
         let newNode = new Node(inpValue)
 
         if (index < 0) {
-            return 'Invalid index'
+            return "Invalid index"
         }
         if (index === 0 ){
             newNode.next = currentNode
@@ -175,26 +175,10 @@ class LinkedList {
         if (index === currentPosition){
             previousNode.next = newNode
             newNode.next = currentNode
-            return `Inserted at index ${index}`
+            return `Inserted ${newNode.value} at index ${index}`
         }else{
-            return 'Index not found'
+            return "Index not found"
         }
     }
 }
   
-
-let newList = new LinkedList()
-newList.append(10)
-newList.append(15)
-newList.append(20)
-newList.prepend(40)
-
-console.log(newList.insertAt(300, 3))
-console.log(newList.tostring())
-// console.log(newList)
-// console.log(newList.size())
-// console.log(newList.popAt(3))
-//console.log(newList)
-// console.log(newList.size())
-//console.log(newList.contains(100))
-//console.log(newList.tostring())

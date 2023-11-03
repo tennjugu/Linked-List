@@ -16,19 +16,17 @@ The `LinkedList` class represents the full list and provides various methods to 
 
 3. `size()`: Returns the total number of nodes in the list.
 
-4. `head()`: Returns the first node in the list.
+4. `firstNode()`: Returns the first node in the list.
 
-5. `tail()`: Returns the last node in the list.
+5. `lastNode()`: Returns the last node in the list.
 
 6. `retrieveAt(index)`: Returns the node at the given index.
 
 7. `pop(index)`: Removes the last element from the list.
 
-8. `contains(value)`: Returns `true` if the passed-in `value` is in the list and otherwise returns `false`.
+8. `contains(value)`: Returns `true` if the passed-in `value` is in the list and it's `position` and returns `false`if otherwise.
 
-9. `find(value)`: Returns the index of the node containing the given `value`, or `null` if not found.
-
-10. `toString()`: Represents your `LinkedList` objects as strings in the format: ( value ) -> ( value ) -> ( value ) -> null
+9. `toString()`: Represents your `LinkedList` objects as strings in the format: ( value ) -> ( value ) -> ( value ) -> null
 
 ### Node
 
